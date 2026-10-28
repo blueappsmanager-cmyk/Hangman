@@ -3,202 +3,536 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Bunny Blast - Cute Block Puzzle</title>
-  <meta name="description" content="Official Privacy Policy for Bunny Blast - Cute Block Puzzle by BlueAppsBox." />
+  <title>Privacy Policy - HangMan - Word Puzzle</title>
+  <meta name="description" content="Official Privacy Policy for HangMan - Word Puzzle (com.blueapps.hangmanword) developed by BlueAppsBox." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #d946ef;
-      --bg: #0f071a;
-      --card-bg: #1c0e30;
-      --card-border: #381a5c;
-      --text-main: #f8fafc;
-      --text-muted: #cbd5e1;
-      --accent: #fde047;
+      --bg-dark: #14100e;
+      --card-parchment: #fcf9f2;
+      --card-border: #d8c9b5;
+      --text-dark: #261710;
+      --text-muted: #6e5746;
+      --gold: #b45309;
+      --gold-light: #f59e0b;
+      --accent-green: #15803d;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.65;
-      padding: 24px 16px;
+      background: radial-gradient(circle at 50% 10%, #241a14 0%, #17110e 50%, #0d0908 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.75;
+      padding: 32px 16px 64px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
+      position: relative;
     }
+
+    /* Reading Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #78350f, #d97706, #f59e0b);
+      z-index: 999;
+      transition: width 0.1s ease-out;
+    }
+
     .container {
+      position: relative;
+      z-index: 10;
       width: 100%;
-      max-width: 820px;
-      background: var(--card-bg);
-      border: 1.5px solid var(--card-border);
+      max-width: 860px;
+      background: var(--card-parchment);
+      border: 2px solid var(--card-border);
       border-radius: 24px;
-      padding: 36px 28px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      padding: 40px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(217, 119, 6, 0.1);
     }
-    .header-badge {
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 24px 18px;
+        border-radius: 18px;
+      }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding-bottom: 26px;
+      border-bottom: 1.5px solid rgba(115, 89, 71, 0.25);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -32px;
+      right: -32px;
+      height: 6px;
+      background: linear-gradient(to right, #78350f, #d97706, #78350f);
+      border-radius: 24px 24px 0 0;
+    }
+
+    @media (max-width: 640px) {
+      .header::before {
+        top: -24px;
+        left: -18px;
+        right: -18px;
+        border-radius: 18px 18px 0 0;
+      }
+    }
+
+    .emblem-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      height: 76px;
+      background: #efe7d8;
+      border: 2px solid #c8b69e;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 16px;
+      font-size: 36px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: #24140c;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 13.5px;
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .meta-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(217, 70, 239, 0.15);
-      border: 1px solid rgba(217, 70, 239, 0.4);
+      font-size: 12.5px;
       padding: 6px 14px;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #f472b6;
-      margin-bottom: 16px;
+      background: #f2ebd9;
+      border: 1px solid #d8c8b4;
+      color: #4a3426;
+      font-weight: 600;
     }
-    h1 { font-size: 30px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
-    .sub-meta {
-      font-size: 14px; color: var(--text-muted); margin-bottom: 24px;
-      padding-bottom: 16px; border-bottom: 1px solid var(--card-border);
-      display: flex; flex-wrap: wrap; gap: 16px;
+
+    .meta-chip strong {
+      color: #261710;
+      font-weight: 800;
     }
-    .sub-meta strong { color: var(--accent); }
-    .app-card {
-      background: rgba(15, 7, 26, 0.6);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 16px 20px;
+
+    /* Search Bar */
+    .search-wrapper {
       margin-bottom: 26px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 18px 12px 44px;
+      border-radius: 14px;
+      border: 1.5px solid #d8c8b4;
+      background: #fdfbf7;
+      color: #24140c;
       font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
     }
-    .app-card div span {
-      display: block; font-size: 11px; text-transform: uppercase;
-      color: var(--text-muted); font-weight: 700;
+
+    .search-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 14px rgba(180, 83, 9, 0.25);
     }
-    .app-card div strong { color: #ffffff; font-size: 14px; }
-    h2 { font-size: 20px; font-weight: 800; color: var(--accent); margin-top: 26px; margin-bottom: 10px; }
-    p { margin-bottom: 14px; color: var(--text-muted); font-size: 14.5px; }
-    ul { margin-left: 20px; margin-bottom: 16px; color: var(--text-muted); font-size: 14.5px; }
-    li { margin-bottom: 8px; }
-    li strong { color: #ffffff; }
-    .highlight-box {
-      background: rgba(253, 224, 71, 0.08);
-      border-left: 4px solid var(--accent);
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      opacity: 0.6;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: #f8f3e8;
+      border: 1px solid #ded1be;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .section-card:hover {
+      border-color: #b08968;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 17.5px;
+      font-weight: 800;
+      color: #261710;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .sec-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #332219;
+      color: #f59e0b;
+      font-size: 12px;
+      font-weight: 800;
+      font-family: sans-serif;
+    }
+
+    p {
+      color: #4a3426;
+      font-size: 14.5px;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      color: #4a3426;
+      font-size: 14.5px;
+    }
+
+    li::before {
+      content: "⚔️";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 12px;
+    }
+
+    .callout-box {
+      background: #f2ebd9;
+      border-left: 3.5px solid var(--gold);
       padding: 14px 18px;
       border-radius: 0 12px 12px 0;
-      margin: 18px 0;
+      margin: 14px 0;
       font-size: 14px;
-      color: #fef08a;
+      color: #3d2a1e;
     }
-    .contact-card {
-      background: linear-gradient(135deg, rgba(217, 70, 239, 0.15), rgba(162, 28, 175, 0.05));
-      border: 1.5px solid rgba(217, 70, 239, 0.4);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 32px;
+
+    .contact-container {
+      background: linear-gradient(135deg, #332219 0%, #20140e 100%);
+      border: 2px solid #5a3d2e;
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      color: #fbf7ee;
+      margin-top: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     }
-    .contact-card a { color: var(--accent); text-decoration: none; font-weight: 700; }
-    footer { margin-top: 24px; text-align: center; font-size: 13px; color: #64748b; }
+
+    .contact-container h2 {
+      color: #f59e0b;
+      justify-content: center;
+    }
+
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #170e0a;
+      border: 1px solid #78350f;
+      padding: 10px 22px;
+      border-radius: 30px;
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fef3c7;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .email-btn:hover {
+      background: #2a1b14;
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      color: #8c7360;
+      font-size: 12.5px;
+    }
+
+    .footer strong {
+      color: #3d2a1e;
+    }
+
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--accent-green);
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
   <div class="container">
-    <div class="header-badge">🔒 Privacy Policy</div>
-    <h1>Bunny Blast - Cute Block Puzzle</h1>
     
-    <div class="sub-meta">
-      <div>Publisher: <strong>BlueAppsBox</strong></div>
-      <div>Effective Date: <strong>October 2026</strong></div>
-      <div>Status: <strong>Active &amp; Compliant</strong></div>
+    <!-- Header -->
+    <header class="header">
+      <div class="emblem-icon">📜</div>
+      <h1>Privacy Policy</h1>
+      <div class="subtitle">HangMan - Word Puzzle</div>
+      
+      <div class="meta-tags">
+        <span class="meta-chip">📦 Package: <strong>com.blueapps.hangmanword</strong></span>
+        <span class="meta-chip">🏢 Developer: <strong>BlueAppsBox</strong></span>
+        <span class="meta-chip">📅 Effective: <strong>October 26, 2026</strong></span>
+      </div>
+    </header>
+
+    <!-- Search Input -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="policy-search" class="search-input" placeholder="Search privacy topics (e.g. AdMob, Children, Local Data, Permissions)..." />
     </div>
 
-    <div class="app-card">
-      <div>
-        <span>Application Title</span>
-        <strong>Bunny Blast - Cute Block Puzzle</strong>
+    <main id="policy-content">
+
+      <!-- Section 1 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">1</span> Introduction & Overview</h2>
+        <p>
+          Welcome to <strong>HangMan - Word Puzzle</strong> (hereinafter referred to as the "Game" or "Application"), created and maintained by <strong>BlueAppsBox</strong> (also operating under the tag <strong>blueappbox</strong>, "we", "us", or "our").
+        </p>
+        <p>
+          We are committed to respecting and protecting the digital privacy and personal data of every player who downloads and enjoys our vocabulary games. This Privacy Policy outlines how information is handled when you download, install, and play <strong>HangMan - Word Puzzle</strong> (Application ID / Package Name: <code>com.blueapps.hangmanword</code>). By playing the Game, you accept the transparent data practices described herein.
+        </p>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">2</span> Information We Collect & Process</h2>
+        <p>
+          <strong>HangMan - Word Puzzle</strong> is architected as an offline-friendly, privacy-focused educational word puzzle. <strong>No account registration, user logins, passwords, emails, or phone numbers</strong> are required to play.
+        </p>
+        <p>The categories of data processed include:</p>
+        <ul>
+          <li><strong>Local Gameplay Progression (On-Device Only):</strong> Your current unlocked trial (Trials 1 through 300), accumulated stars, category completions, and audio mute preferences are saved strictly on your local device via HTML5 LocalStorage. We do not store or transmit this game progression data to any external corporate servers.</li>
+          <li><strong>Non-Personal Device & Technical Telemetry:</strong> Anonymized device characteristics (device brand/model, Android OS version, display resolution, system language, and network state) collected through standard Android operating system interfaces for compatibility.</li>
+          <li><strong>Crash & Performance Logs:</strong> Aggregated, non-personally identifiable diagnostic reports used exclusively to detect crashes, fix bugs, and ensure smooth 60 FPS performance on all phone screens.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">3</span> Advertising Partners & Google AdMob</h2>
+        <p>
+          To maintain <strong>HangMan - Word Puzzle</strong> as a 100% free vocabulary learning game for players around the world, we integrate advertising technology from <strong>Google AdMob</strong>.
+        </p>
+        <p>Google AdMob may process non-personal information subject to Google's Privacy Policy:</p>
+        <ul>
+          <li><strong>Google Advertising ID (AAID):</strong> Used by AdMob for ad frequency capping, fraud mitigation, ad verification, and delivering personalized or non-personalized ads according to your device preferences.</li>
+          <li><strong>Coarse Location (Country / City Level):</strong> Inferred from your IP address to deliver regionally relevant ad content.</li>
+          <li><strong>Ad Interaction Metrics:</strong> Information on ad views and completion of optional player-initiated rewarded video ads (used for unlocking letter hints, restoring +2 extra lives after hanging, or resetting trial mistakes).</li>
+        </ul>
+        <div class="callout-box">
+          <strong>Rewarded Ads Transparency:</strong> Watching rewarded video ads is entirely optional and initiated solely by the player. You are never forced to watch ads to solve standard trials or advance through the 300 levels.
+        </div>
+        <p>
+          Learn more about Google’s advertising privacy standards: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline; font-weight: 700;">https://policies.google.com/technologies/ads</a>
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">4</span> Children’s Privacy (COPPA Compliance)</h2>
+        <p>
+          <strong>BlueAppsBox</strong> is committed to the digital safety of children and families. <strong>HangMan - Word Puzzle</strong> is designed as a family-safe vocabulary challenge suitable for players of all ages.
+        </p>
+        <ul>
+          <li>We do <strong>not knowingly collect or solicit personal identifiable information (PII)</strong> from children under the age of 13 (or under the applicable age of digital consent in your territory).</li>
+          <li>Our ad integration follows Google Play’s Families Policy and Children's Online Privacy Protection Act (COPPA) guidelines.</li>
+          <li>If a parent or legal guardian discovers that their child has inadvertently transmitted personal data through third-party ad networks without consent, please contact us immediately at <strong>blueappsmanager@gmail.com</strong>, and we will take immediate corrective action.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">5</span> User Rights & Data Deletion (GDPR & CCPA)</h2>
+        <p>
+          Depending on your jurisdiction (including the European Economic Area under GDPR and California under CCPA/CPRA), you retain fundamental rights regarding your digital data:
+        </p>
+        <ul>
+          <li><strong>Right to Erase All Game Data:</strong> You can completely purge all unlocked chapters, saved stars, and preferences anytime in one step: <em>Android Settings &rarr; Apps &rarr; HangMan - Word Puzzle &rarr; Storage &rarr; Clear Data</em>.</li>
+          <li><strong>Right to Opt-Out of Ad Personalization:</strong> You can reset or delete your Google Advertising ID directly from your Android system settings: <em>Settings &rarr; Google &rarr; Ads &rarr; Delete Advertising ID</em>.</li>
+          <li><strong>Privacy Inquiries:</strong> For any privacy-related queries or requests, contact our dedicated support team directly via email at <strong>blueappsmanager@gmail.com</strong>.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="section-card">
+        <h2><span class="sec-badge">6</span> Policy Revisions</h2>
+        <p>
+          We may periodically update this Privacy Policy to reflect app enhancements, Google Play Console Developer Program Policies, or legal standards. Revisions will be published directly to this URL with an updated "Effective Date" at the top of the page.
+        </p>
+      </section>
+
+      <!-- Contact Container -->
+      <div class="contact-container">
+        <h2 style="font-family: 'Cinzel', serif;">📬 Contact Developer (BlueAppsBox)</h2>
+        <p style="color: #e2d5c3; font-size: 14.5px; margin-top: 6px;">
+          Have questions, suggestions, or concerns regarding your privacy in <strong>HangMan - Word Puzzle</strong>? Reach out directly:
+        </p>
+        
+        <div class="email-btn" id="copy-email-btn" title="Click to copy email address">
+          <span>✉️</span>
+          <span>blueappsmanager@gmail.com</span>
+          <span style="font-size: 11px; opacity: 0.75; padding-left: 4px;">(Click to Copy)</span>
+        </div>
+
+        <p style="margin-top: 14px; font-size: 13px; color: #b8a490;">
+          Company: <strong>BlueAppsBox</strong> &bull; Package: <strong>com.blueapps.hangmanword</strong>
+        </p>
       </div>
-      <div>
-        <span>Package Identifier</span>
-        <strong>com.blueapps.cuteblockpuzzle</strong>
-      </div>
-      <div>
-        <span>Developer / Publisher</span>
-        <strong>BlueAppsBox</strong>
-      </div>
-      <div>
-        <span>Official Support Email</span>
-        <strong>blueappsmanager@gmail.com</strong>
-      </div>
-    </div>
 
-    <h2>1. Overview &amp; Commitment</h2>
-    <p>
-      This Privacy Policy applies to the mobile game <strong>Bunny Blast - Cute Block Puzzle</strong>, published by <strong>BlueAppsBox</strong> ("we", "us", or "our"). We are dedicated to ensuring a secure and family-friendly experience for all players.
-    </p>
+    </main>
 
-    <h2>2. Information Collection and Use</h2>
-    <p>
-      <strong>Bunny Blast - Cute Block Puzzle does NOT collect, store, or sell any Personally Identifiable Information (PII).</strong>
-    </p>
-    <ul>
-      <li><strong>No Account Registration:</strong> All 300 levels can be enjoyed without signing in, registering emails, or sharing credentials.</li>
-      <li><strong>No Device Media or Contact Access:</strong> The app never requests access to your photos, contacts, camera, or microphone.</li>
-      <li><strong>No Precise Location Tracking:</strong> We do not track or store your GPS location.</li>
-    </ul>
+    <footer class="footer">
+      <p>&copy; 2026 <strong>BlueAppsBox</strong>. All rights reserved.</p>
+      <p style="margin-top: 4px;">HangMan - Word Puzzle &bull; 300 Trials of Vocabulary & Wit.</p>
+    </footer>
 
-    <h2>3. Local Storage Data (On-Device Only)</h2>
-    <p>
-      The App uses HTML5 LocalStorage strictly on your local device to save:
-    </p>
-    <ul>
-      <li><strong>High Scores &amp; Unlocked Levels:</strong> To remember your achievements across Levels 1 to 300.</li>
-      <li><strong>Audio Preferences:</strong> To store your Sound On / Mute settings.</li>
-    </ul>
-    <p>
-      This data stays strictly on your personal phone and is never uploaded to external servers.
-    </p>
-
-    <h2>4. Advertising &amp; Google AdMob SDK</h2>
-    <p>
-      The Game is supported by non-intrusive advertisements served through the <strong>Google Mobile Ads (AdMob) SDK</strong>. Optional rewarded video ads allow players to revive when no moves remain.
-    </p>
-    <p>
-      Google AdMob may collect technical pseudonymous identifiers in compliance with Google Play Developer Policies, such as:
-    </p>
-    <ul>
-      <li>Google Advertising ID (GAID) — resettable anytime in your Android device settings.</li>
-      <li>Basic device model, OS version, and network country.</li>
-      <li>Ad interaction and rewarded ad completion events.</li>
-    </ul>
-
-    <h2>5. Children’s Online Privacy Protection (COPPA &amp; GDPR-K)</h2>
-    <div class="highlight-box">
-      <strong>Family &amp; Child Safety:</strong> Bunny Blast - Cute Block Puzzle is safe for children and families. We adhere strictly to COPPA, GDPR-K, and Google Play Families Policy guidelines. All ad requests follow child-directed settings where required.
-    </div>
-
-    <h2>6. Data Deletion &amp; Control</h2>
-    <p>
-      You have full control over your local game data:
-    </p>
-    <ul>
-      <li><strong>Clear Storage:</strong> Go to <em>Android Settings &gt; Apps &gt; Bunny Blast - Cute Block Puzzle &gt; Storage &gt; Clear Data</em> to wipe all local stats.</li>
-      <li><strong>Uninstall:</strong> Uninstalling the application automatically deletes all stored game state.</li>
-    </ul>
-
-    <div class="contact-card">
-      <h3 style="font-size:18px; margin-bottom:8px; color:#ffffff;">Contact &amp; Support</h3>
-      <p style="margin-bottom:6px;">🏢 <strong>Company:</strong> BlueAppsBox</p>
-      <p style="margin-bottom:6px;">✉️ <strong>Email:</strong> <a href="mailto:blueappsmanager@gmail.com">blueappsmanager@gmail.com</a></p>
-      <p style="margin-bottom:0;">📱 <strong>Package ID:</strong> <code>com.blueapps.cuteblockpuzzle</code></p>
-    </div>
   </div>
 
-  <footer>
-    &copy; 2026 BlueAppsBox. All rights reserved. &bull; Bunny Blast - Cute Block Puzzle
-  </footer>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-pill">Email copied to clipboard! ✨</div>
 
   <script>
-    console.log("Privacy Policy ready for com.blueapps.cuteblockpuzzle by BlueAppsBox");
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Search Filter
+    const searchInput = document.getElementById('policy-search');
+    const sections = document.querySelectorAll('.section-card');
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      sections.forEach(sec => {
+        const text = sec.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    });
+
+    // 3. Copy Email with Toast Feedback
+    const copyBtn = document.getElementById('copy-email-btn');
+    const toast = document.getElementById('toast');
+
+    copyBtn.addEventListener('click', () => {
+      const email = 'blueappsmanager@gmail.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showToast);
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = email;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast();
+      }
+    });
+
+    function showToast() {
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
   </script>
 </body>
 </html>
